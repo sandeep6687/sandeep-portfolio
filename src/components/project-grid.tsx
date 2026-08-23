@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "motion/react";
 
 import { Tilt3D } from "@/components/motion/tilt-3d";
 import { ProjectVisual } from "@/components/project-visual";
-import { featuredProjects } from "@/lib/content";
+import { featuredProjects, site } from "@/lib/content";
 
 export function ProjectGrid() {
   const reduce = useReducedMotion();
@@ -25,9 +25,14 @@ export function ProjectGrid() {
           </p>
           <h2 className="font-heading mt-2 text-4xl sm:text-5xl">Selected Work</h2>
         </div>
-        <Link href="#contact" className="hidden text-sm text-[#a1a1a1] transition-colors hover:text-white sm:inline">
+        <a
+          href={site.mailHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden text-sm text-[#a1a1a1] transition-colors hover:text-white sm:inline"
+        >
           Work with me →
-        </Link>
+        </a>
       </motion.div>
       <div className="mt-12 grid gap-10 md:grid-cols-2" style={{ perspective: "1200px" }}>
         {featuredProjects.map((project, index) => (

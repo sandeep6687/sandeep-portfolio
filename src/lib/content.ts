@@ -4,11 +4,13 @@ export const site = {
   role: "Software Engineer · Backend & AI Agent Systems",
   location: "India",
   email: "gonnabattula19@gmail.com",
+  mailHref:
+    "https://mail.google.com/mail/?view=cm&fs=1&to=gonnabattula19%40gmail.com",
   phone: "+91 7416303019",
   github: "https://github.com/sandeep6687",
   linkedin: "https://www.linkedin.com/in/sandeep-go",
   resume: "/Sandeep_Gonnabattula_Resume.pdf",
-  url: "https://sandeep-gonnabattula.vercel.app",
+  url: "https://sandeep-gonnabattula.dev",
   headline: "I'm Sandeep, a software engineer shaping backend and agent systems.",
   pitch:
     "Hello — I build production backends for enterprise SaaS, with a particular interest in workflow automation and AI agent systems. Over the last eighteen months at Zenoti I have shipped REST APIs, event-driven services, and retrieval-backed tool-calling so that automation stays grounded in real business data. I work carefully: clear contracts, honest failure handling, and close collaboration with product from the first requirement through to release.",

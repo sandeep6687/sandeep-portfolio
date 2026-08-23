@@ -3,7 +3,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
 
-import { Tilt3D } from "@/components/motion/tilt-3d";
 import { site } from "@/lib/content";
 
 export function Contact() {
@@ -23,16 +22,15 @@ export function Contact() {
       <p className="mt-4 max-w-xl text-base leading-8 text-[#a1a1a1]">
         {site.lookingFor} I usually reply within a day.
       </p>
-      <div style={{ perspective: "700px" }} className="mt-8 w-fit">
-        <Tilt3D
-          href={`mailto:${site.email}`}
-          intensity={12}
-          className="inline-flex items-center gap-2 text-[15px] font-medium"
-        >
-          <span className="relative">{site.email}</span>
-          <ArrowUpRight className="relative size-4 text-white/40" />
-        </Tilt3D>
-      </div>
+      <a
+        href={site.mailHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group mt-8 inline-flex items-center gap-2 text-[15px] font-medium"
+      >
+        {site.email}
+        <ArrowUpRight className="size-4 text-white/40 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-white" />
+      </a>
       <p className="mt-2 text-sm text-[#a1a1a1]">{site.phone}</p>
     </motion.section>
   );

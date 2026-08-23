@@ -48,7 +48,9 @@ export function SiteHeader() {
         <div className="hidden items-center gap-4 md:flex">
           <SocialIcons />
           <a
-            href="#contact"
+            href={site.mailHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="group inline-flex items-center gap-1.5 text-[13px] text-[#a1a1a1] transition-colors hover:text-white"
           >
             Work with me
@@ -76,7 +78,12 @@ export function SiteHeader() {
                 </SheetClose>
               ))}
               <SheetClose asChild>
-                <a href="#contact" className="rounded-md px-2 py-3">
+                <a
+                  href={site.mailHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-md px-2 py-3"
+                >
                   Work with me
                 </a>
               </SheetClose>

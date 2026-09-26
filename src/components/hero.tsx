@@ -13,7 +13,7 @@ export function Hero() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="about" className="scroll-mt-24 mx-auto max-w-[1080px] px-6 pt-16 pb-8 sm:pt-24">
+    <section id="top" className="scroll-mt-24 mx-auto max-w-[1080px] px-6 pt-16 pb-8 sm:pt-24">
       <div style={{ perspective: "700px" }} className="mb-8 w-fit">
         <Tilt3D
           intensity={20}

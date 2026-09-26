@@ -16,11 +16,7 @@ export function CountUp({
   const [shown, setShown] = useState(reduce ? value : 0);
 
   useEffect(() => {
-    if (!inView) return;
-    if (reduce) {
-      setShown(value);
-      return;
-    }
+    if (!inView || reduce) return;
     const start = performance.now();
     const duration = 1400;
     let frame = 0;

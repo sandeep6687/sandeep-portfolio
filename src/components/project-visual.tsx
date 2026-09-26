@@ -15,6 +15,8 @@ const EASE = [0.16, 1, 0.3, 1] as const;
 export function ProjectVisual({ slug }: { slug: string }) {
   return (
     <Stage>
+      {slug === "multi-tenant-task-saas" ? <MultiTenantSaasScene /> : null}
+      {slug === "autonomous-sre-agent" ? <SreAgentScene /> : null}
       {slug === "enterprise-ai-workflow" ? <WorkflowScene /> : null}
       {slug === "lead-management" ? <LeadScene /> : null}
       {slug === "talentpulse-ai" ? <TalentScene /> : null}
@@ -311,10 +313,7 @@ function useTyped(text: string, reduce: boolean | null) {
   const [out, setOut] = useState(reduce ? text : "");
 
   useEffect(() => {
-    if (reduce) {
-      setOut(text);
-      return;
-    }
+    if (reduce) return;
     let i = 0;
     let timer = 0;
     const start = window.setTimeout(() => {
@@ -332,3 +331,362 @@ function useTyped(text: string, reduce: boolean | null) {
 
   return out;
 }
+
+const SRE_STAGES = [
+  {
+    step: "Alert",
+    tag: "P1 Incident",
+    tagStyle: "border-rose-500/40 bg-rose-500/15 text-rose-300",
+    title: "Auth Gateway: Connection Pool Exhaustion",
+    metric: "Error Rate: 34.2% · p99 Latency: 4850ms",
+    cmd: "ingest_alert(sev='P1', service='auth-gateway')",
+    desc: "Autonomous triage initialized. Localizing degraded dependency.",
+  },
+  {
+    step: "RAG Runbook",
+    tag: "ChromaDB RAG",
+    tagStyle: "border-emerald-500/40 bg-emerald-500/15 text-emerald-300",
+    title: "Matched: runbooks/pg_pool_exhaustion.md",
+    metric: "Cosine Sim: 0.94 · Dual-mode Gemini Embedding",
+    cmd: "chroma.similarity_search('pg pool saturation', k=2)",
+    desc: "Ingested runbook escalation path and remediation procedure.",
+  },
+  {
+    step: "Telemetry Triage",
+    tag: "Tool Calling",
+    tagStyle: "border-sky-500/40 bg-sky-500/15 text-sky-300",
+    title: "query_service_logs() + get_git_diff()",
+    metric: "Root cause: Leaked cursor in commit a8f9c1 (checkout_v2)",
+    cmd: "get_git_diff('auth-gateway', commit='a8f9c1')",
+    desc: "Correlated surge with unclosed database connection block.",
+  },
+  {
+    step: "HITL Gate",
+    tag: "Breakpoint Pause",
+    tagStyle: "border-amber-500/40 bg-amber-500/15 text-amber-300",
+    title: "LangGraph MemorySaver Checkpoint",
+    metric: "Pending tool: rollback_deployment('auth-gateway', 'v1.4.2')",
+    cmd: "interrupt_before=['execute_remediation']",
+    desc: "⏸️ Freezing graph execution. Waiting for operator approval.",
+  },
+  {
+    step: "Remediation",
+    tag: "Resolved",
+    tagStyle: "border-emerald-500/40 bg-emerald-500/15 text-emerald-300",
+    title: "Rollback Complete · Metrics Normalized",
+    metric: "p99: 38ms · Errors: 0.0% · MTTR: 42s",
+    cmd: "generate_postmortem(incident_id='INC-4029')",
+    desc: "Automated Markdown postmortem generated with full audit trail.",
+  },
+] as const;
+
+function SreAgentScene() {
+  const reduce = useReducedMotion();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const timer = window.setInterval(() => {
+      setIndex((curr) => (curr + 1) % SRE_STAGES.length);
+    }, 2200);
+    return () => window.clearInterval(timer);
+  }, [reduce]);
+
+  const current = SRE_STAGES[index];
+
+  return (
+    <div className="relative flex h-full flex-col justify-between bg-gradient-to-b from-[#0f172a] via-[#090d16] to-[#05070d] p-5">
+      {/* Header bar */}
+      <div className="flex items-center justify-between border-b border-white/10 pb-3">
+        <div className="flex items-center gap-2">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+          </span>
+          <span className="text-[11px] font-medium tracking-wide text-slate-300 uppercase">
+            LangGraph SRE Agent · State Machine
+          </span>
+        </div>
+        <span className="rounded border border-emerald-500/30 bg-emerald-500/10 px-2 py-0.5 text-[10px] font-mono text-emerald-300">
+          Eval: 100% Pass
+        </span>
+      </div>
+
+      {/* State nodes stepper */}
+      <div className="grid grid-cols-5 gap-1.5 pt-2">
+        {SRE_STAGES.map((st, i) => {
+          const isActive = i === index;
+          const isDone = i < index;
+          return (
+            <button
+              type="button"
+              key={st.step}
+              onClick={() => setIndex(i)}
+              className={`group flex flex-col items-center rounded-lg border px-1.5 py-2 text-center transition-all ${
+                isActive
+                  ? "border-sky-400/60 bg-sky-500/15 shadow-[0_0_12px_rgba(56,189,248,0.25)]"
+                  : isDone
+                    ? "border-emerald-500/30 bg-emerald-500/5 text-emerald-400/80"
+                    : "border-white/5 bg-white/[0.02] text-slate-500"
+              }`}
+            >
+              <span
+                className={`text-[9px] font-mono uppercase tracking-wider ${
+                  isActive ? "font-semibold text-sky-200" : ""
+                }`}
+              >
+                {st.step}
+              </span>
+              <span
+                className={`mt-1 size-1.5 rounded-full ${
+                  isActive
+                    ? "bg-sky-400 shadow-[0_0_6px_#38bdf8]"
+                    : isDone
+                      ? "bg-emerald-400"
+                      : "bg-white/20"
+                }`}
+              />
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Active Stage Card */}
+      <motion.div
+        key={current.step}
+        initial={reduce ? false : { opacity: 0, y: 8 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: EASE }}
+        className="relative overflow-hidden rounded-xl border border-white/10 bg-black/40 p-4 backdrop-blur-md"
+      >
+        <div className="flex items-center justify-between gap-2">
+          <span
+            className={`rounded-full border px-2.5 py-0.5 text-[10px] font-medium tracking-wide ${current.tagStyle}`}
+          >
+            {current.tag}
+          </span>
+          <span className="font-mono text-[10px] text-slate-400">
+            Node {index + 1} of 5
+          </span>
+        </div>
+
+        <h4 className="mt-2.5 text-sm font-semibold text-white tracking-tight">
+          {current.title}
+        </h4>
+
+        <p className="mt-1 font-mono text-[11px] text-sky-300/90">
+          {current.metric}
+        </p>
+
+        <div className="mt-3 rounded-lg border border-white/5 bg-slate-950/80 px-2.5 py-1.5 font-mono text-[11px] text-slate-300">
+          <span className="text-emerald-400">$ </span>
+          {current.cmd}
+        </div>
+
+        <p className="mt-2 text-[11px] leading-relaxed text-slate-400">
+          {current.desc}
+        </p>
+      </motion.div>
+
+      {/* Bottom status strip */}
+      <div className="flex items-center justify-between pt-1 text-[10px] text-slate-500">
+        <span>HITL Gated · MemorySaver Active</span>
+        <span>Simulated Latency: ~38ms</span>
+      </div>
+    </div>
+  );
+}
+
+function MultiTenantSaasScene() {
+  const reduce = useReducedMotion();
+  const [tenant, setTenant] = useState<"acme" | "vertex">("acme");
+  const [boardStep, setBoardStep] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const interval = window.setInterval(() => {
+      setBoardStep((prev) => (prev + 1) % 4);
+    }, 2000);
+    return () => window.clearInterval(interval);
+  }, [reduce]);
+
+  const tenantData = {
+    acme: {
+      name: "Acme Corp",
+      orgId: "tenant_acme_8921",
+      tasks: [
+        { id: "TSK-101", title: "Implement OAuth2 / JWT Auth Filter", col: 2, priority: "High" },
+        { id: "TSK-102", title: "WebSocket Session Heartbeat", col: boardStep >= 1 ? 2 : 1, priority: "Medium" },
+        { id: "TSK-103", title: "PostgreSQL Schema Partitioning", col: boardStep >= 2 ? 3 : 2, priority: "High" },
+      ],
+      event: boardStep === 0
+        ? "WebSocket: 4 team peers syncing state"
+        : boardStep === 1
+        ? "STOMP: TSK-102 moved to In-Progress"
+        : boardStep === 2
+        ? "STOMP: TSK-103 moved to Completed"
+        : "PostgreSQL: Tenant isolation verified",
+    },
+    vertex: {
+      name: "Vertex Global",
+      orgId: "tenant_vertex_3341",
+      tasks: [
+        { id: "VTX-401", title: "Drag & drop Kanban reordering", col: 3, priority: "High" },
+        { id: "VTX-402", title: "AWS ECS Task Auto-scale", col: boardStep >= 2 ? 3 : 2, priority: "High" },
+        { id: "VTX-403", title: "GitHub Actions CI Pipeline", col: 2, priority: "Medium" },
+      ],
+      event: "Spring Security: Tenant context isolated from Acme",
+    },
+  };
+
+  const currentData = tenantData[tenant];
+
+  return (
+    <div className="relative flex h-full flex-col justify-between bg-gradient-to-b from-[#0f172a] via-[#09111e] to-[#040810] p-4 sm:p-5">
+      {/* Top Tenant & Status Header */}
+      <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+        <div className="flex items-center gap-2">
+          <div className="flex rounded-lg border border-white/15 bg-black/40 p-0.5">
+            <button
+              type="button"
+              onClick={() => setTenant("acme")}
+              className={`rounded-md px-2.5 py-1 text-[10px] font-medium transition-colors ${
+                tenant === "acme"
+                  ? "bg-sky-500 text-white shadow-sm"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              Acme Corp (Tenant 1)
+            </button>
+            <button
+              type="button"
+              onClick={() => setTenant("vertex")}
+              className={`rounded-md px-2.5 py-1 text-[10px] font-medium transition-colors ${
+                tenant === "vertex"
+                  ? "bg-sky-500 text-white shadow-sm"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              Vertex (Tenant 2)
+            </button>
+          </div>
+          <span className="hidden font-mono text-[10px] text-white/40 sm:inline">
+            [{currentData.orgId}]
+          </span>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="relative flex size-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex size-2 rounded-full bg-emerald-500" />
+          </span>
+          <span className="font-mono text-[10px] text-emerald-300">
+            WS: Connected (14ms)
+          </span>
+        </div>
+      </div>
+
+      {/* Real-time Kanban Board Columns */}
+      <div className="my-2 grid grid-cols-3 gap-2 flex-1" style={{ transformStyle: "preserve-3d" }}>
+        {/* Column 1: Backlog */}
+        <div className="flex flex-col rounded-lg border border-white/10 bg-black/30 p-2">
+          <div className="flex items-center justify-between border-b border-white/10 pb-1.5 text-[10px] font-semibold text-white/70 uppercase">
+            <span>Backlog</span>
+            <span className="rounded bg-white/10 px-1 font-mono text-[9px]">
+              {currentData.tasks.filter((t) => t.col === 1).length}
+            </span>
+          </div>
+          <div className="mt-2 space-y-1.5 flex-1">
+            {currentData.tasks
+              .filter((t) => t.col === 1)
+              .map((t) => (
+                <motion.div
+                  layout
+                  key={t.id}
+                  className="rounded-md border border-white/10 bg-white/[0.04] p-2 text-left shadow-sm"
+                >
+                  <p className="font-mono text-[9px] text-sky-400">{t.id}</p>
+                  <p className="mt-0.5 text-[11px] leading-tight text-white/90">{t.title}</p>
+                </motion.div>
+              ))}
+          </div>
+        </div>
+
+        {/* Column 2: In Progress */}
+        <div className="flex flex-col rounded-lg border border-sky-500/25 bg-sky-950/20 p-2">
+          <div className="flex items-center justify-between border-b border-sky-500/30 pb-1.5 text-[10px] font-semibold text-sky-300 uppercase">
+            <span>In Progress</span>
+            <span className="rounded bg-sky-500/20 px-1 font-mono text-[9px] text-sky-300">
+              {currentData.tasks.filter((t) => t.col === 2).length}
+            </span>
+          </div>
+          <div className="mt-2 space-y-1.5 flex-1">
+            {currentData.tasks
+              .filter((t) => t.col === 2)
+              .map((t) => (
+                <motion.div
+                  layout
+                  key={t.id}
+                  className="rounded-md border border-sky-400/40 bg-sky-900/30 p-2 text-left shadow-[0_0_10px_rgba(56,189,248,0.15)]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-[9px] text-sky-300">{t.id}</span>
+                    <span className="rounded bg-amber-500/20 px-1 text-[8px] text-amber-300">
+                      {t.priority}
+                    </span>
+                  </div>
+                  <p className="mt-0.5 text-[11px] leading-tight text-white">{t.title}</p>
+                  <div className="mt-1 flex items-center gap-1 text-[9px] text-sky-200/70">
+                    <span className="size-1 rounded-full bg-emerald-400 animate-pulse" />
+                    <span>Real-time Drag Sync</span>
+                  </div>
+                </motion.div>
+              ))}
+          </div>
+        </div>
+
+        {/* Column 3: Completed */}
+        <div className="flex flex-col rounded-lg border border-emerald-500/25 bg-emerald-950/20 p-2">
+          <div className="flex items-center justify-between border-b border-emerald-500/30 pb-1.5 text-[10px] font-semibold text-emerald-300 uppercase">
+            <span>Completed</span>
+            <span className="rounded bg-emerald-500/20 px-1 font-mono text-[9px] text-emerald-300">
+              {currentData.tasks.filter((t) => t.col === 3).length}
+            </span>
+          </div>
+          <div className="mt-2 space-y-1.5 flex-1">
+            {currentData.tasks
+              .filter((t) => t.col === 3)
+              .map((t) => (
+                <motion.div
+                  layout
+                  key={t.id}
+                  className="rounded-md border border-emerald-400/30 bg-emerald-900/20 p-2 text-left"
+                >
+                  <span className="font-mono text-[9px] text-emerald-400">{t.id}</span>
+                  <p className="mt-0.5 text-[11px] leading-tight text-white/90">{t.title}</p>
+                  <span className="mt-1 inline-block text-[8px] font-mono text-emerald-400/80">
+                    ✓ Verified in DB
+                  </span>
+                </motion.div>
+              ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Bottom Live Broadcast Banner */}
+      <div className="flex flex-wrap items-center justify-between gap-2 rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-[10px]">
+        <div className="flex items-center gap-2">
+          <span className="font-mono text-sky-400">$ STOMP:</span>
+          <span className="text-white/80">{currentData.event}</span>
+        </div>
+        <div className="flex items-center gap-2 font-mono text-[9px] text-white/50">
+          <span>Spring Security RBAC</span>
+          <span>·</span>
+          <span>AWS ECS Healthy</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+

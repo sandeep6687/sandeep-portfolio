@@ -1,7 +1,7 @@
 export const site = {
   name: "Sandeep Gonnabattula",
   firstName: "Sandeep",
-  role: "Software Engineer · Backend & AI Agent Systems",
+  role: "Software Engineer — Full Stack & Microservices",
   location: "India",
   email: "gonnabattula19@gmail.com",
   mailHref:
@@ -11,88 +11,149 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/sandeep-go",
   resume: "/Sandeep_Gonnabattula_Resume.pdf",
   url: "https://sandeep-gonnabattula.dev",
-  headline: "I'm Sandeep, a software engineer shaping backend and agent systems.",
+  headline: "Building event-driven microservices & autonomous agent systems that scale.",
   pitch:
-    "Hello — I build production backends for enterprise SaaS, with a particular interest in workflow automation and AI agent systems. Over the last eighteen months at Zenoti I have shipped REST APIs, event-driven services, and retrieval-backed tool-calling so that automation stays grounded in real business data. I work carefully: clear contracts, honest failure handling, and close collaboration with product from the first requirement through to release.",
+    "Software Engineer with 18 months of production experience building backend APIs, microservices, and agentic workflow systems in Python/FastAPI and C#/.NET at Zenoti. Built event-driven workflow automation using Kafka, Redis, and PostgreSQL, supporting up to 40 steps/sec, with hands-on LLM integration, tool calling, RAG, and semantic retrieval. Strong grounding in distributed systems, Git-based SDLC, and full-stack delivery.",
   summary:
-    "I spent eighteen months at Zenoti on an enterprise SaaS platform — a workflow automation engine, fifty-plus REST APIs, and services on Python, PostgreSQL, and SQL Server. I studied Computer Science (AI & ML) at VNR VJIET.",
+    "18 months of production experience at Zenoti on an enterprise SaaS platform — an event-driven workflow automation engine, 50+ REST APIs, and microservices on Python, PostgreSQL, and SQL Server. B.Tech in Computer Science (AI & ML) from VNR VJIET (CGPA 8.02).",
   aboutExtra:
     "Day to day that looks like workflow registration, triggers, conditions, and distributed workers; JWT-secured APIs with OpenAPI; caching and query work when latency appears; and delivery through Agile from analysis to production. I am comfortable taking an unclear brief, scoping it, and seeing it through — including tests, reviews, and the unglamorous parts of operating a service.",
   lookingFor:
-    "I am currently open to conversations about backend and AI-platform roles — especially teams that treat agents as systems, not demos. If that sounds useful, I would be glad to hear from you.",
+    "I am currently open to conversations about Software Engineer, Backend, and AI-Platform roles — especially teams that build high-throughput microservices and treat agents as production systems, not toys.",
 };
 
 export const stats = [
-  { value: 18, suffix: " mo", label: "Production backend" },
-  { value: 2, suffix: "", label: "Projects shipped · workflow & lead" },
-  { value: 40, suffix: "/s", label: "Automation throughput" },
+  { value: 18, suffix: "+ mo", label: "Production Backend at Zenoti" },
+  { value: 40, suffix: "/s", label: "Workflow Automation Throughput" },
+  { value: 100, suffix: "%", label: "Eval Benchmark Accuracy (SRE Triage)" },
+  { value: 8.02, suffix: "", label: "CGPA · B.Tech CSE (AI & ML)" },
 ] as const;
 
 export const clientTiles = [
   "Zenoti",
-  "FastAPI",
-  ".NET 8",
   "Kafka",
   "Redis",
   "PostgreSQL",
-  "pgvector",
-  "Azure",
+  "FastAPI",
+  "Spring Boot",
+  "Python",
+  ".NET Core",
+  "Docker",
   "Kubernetes",
+  "React",
   "Gemini",
-  "Claude",
-  "EF Core",
+  "LangGraph",
+  "AWS",
+] as const;
+
+export const marqueeItems = [
+  "FULL-STACK DEVELOPMENT",
+  "EVENT-DRIVEN MICROSERVICES",
+  "AI AGENTS & RAG",
+  "KAFKA & REDIS PIPELINES",
+  "SPRING BOOT & FASTAPI",
+  "40 STEPS/SEC AUTOMATION",
+  "REACT & WEBSOCKETS",
+  "DISTRIBUTED ARCHITECTURE",
 ] as const;
 
 export const nav = [
-  { href: "/#about", label: "About" },
-  { href: "/#work", label: "Projects" },
+  { href: "/#work", label: "Work" },
+  { href: "/#skills", label: "Skills" },
+  { href: "/#services", label: "Services" },
+  { href: "/#why-me", label: "Why Me" },
+  { href: "/#about", label: "Experience" },
+  { href: "/#contact", label: "Contact" },
   { href: "/Sandeep_Gonnabattula_Resume.pdf", label: "Resume", external: true },
 ] as const;
 
 export const skillGroups = [
   {
-    title: "AI / LLM & agents",
+    title: "Languages",
     items: [
-      "Gemini & Claude",
-      "Prompt chaining",
-      "Tool-calling orchestration",
-      "Agentic task loops",
-      "RAG with pgvector",
-      "Context grounding",
+      "Java",
+      "Python",
+      "C#",
+      "TypeScript",
+      "JavaScript (Node.js)",
+      "C++",
     ],
   },
   {
     title: "Backend & APIs",
     items: [
-      "Python / FastAPI",
-      "C# / .NET 8",
+      "FastAPI",
       "ASP.NET Core Web API",
-      "Entity Framework Core",
-      "Microservices",
-      "REST / OpenAPI",
-      "OOP & system design",
+      "Spring Boot",
+      "Node.js / Express.js",
+      "RESTful Services",
+      "Microservices Architecture",
+      "Django",
+      "Flask",
     ],
   },
   {
-    title: "Data & messaging",
+    title: "Frontend & Real-Time",
+    items: [
+      "React",
+      "Vanilla JS/CSS (Reactive UI)",
+      "WebSockets",
+      "Next.js",
+      "Tailwind CSS",
+      "HTML5 / CSS3",
+    ],
+  },
+  {
+    title: "Databases & Storage",
     items: [
       "PostgreSQL",
       "SQL Server",
-      "Redis",
-      "Kafka",
-      "Azure Service Bus",
-      "Background jobs",
+      "MongoDB",
+      "SQL Query Optimization",
+      "Indexing & Plan Tuning",
     ],
   },
   {
-    title: "Cloud & delivery",
+    title: "Architecture & Messaging",
     items: [
-      "Azure Functions",
+      "Event-Driven Microservices",
+      "Kafka",
+      "Redis Caching",
+      "Distributed Systems",
+      "System Design",
+      "KEDA Auto-scaling",
+    ],
+  },
+  {
+    title: "Tools, DevOps & Cloud",
+    items: [
+      "Git",
       "Docker",
       "Kubernetes",
-      "KEDA",
-      "JWT auth",
-      "NUnit / integration tests",
+      "GitHub Actions (CI/CD)",
+      "AWS Deployment",
+      "Azure (Functions/Services)",
+    ],
+  },
+  {
+    title: "Testing & Quality",
+    items: [
+      "Pytest",
+      "NUnit",
+      "Coverlet",
+      "Unit & Integration Testing",
+      "Automated Eval Harnesses",
+    ],
+  },
+  {
+    title: "AI & Agentic Systems",
+    items: [
+      "Google Gemini",
+      "LangGraph",
+      "LLM Integration",
+      "Tool Calling",
+      "RAG & Semantic Retrieval",
+      "Human-in-the-Loop (HITL)",
     ],
   },
 ] as const;
@@ -117,16 +178,96 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "multi-tenant-task-saas",
+    label: "Full Stack SaaS",
+    title: "Multi-Tenant Task Management SaaS Platform",
+    cardTitle:
+      "Enterprise multi-tenant task platform with Spring Boot, WebSockets & React drag-and-drop",
+    accent: "#132338",
+    summary:
+      "Multi-tenant task and project management platform built in Spring Boot with role-based access control, tenant-level data isolation, real-time WebSocket Kanban synchronization, and AWS container deployment.",
+    role: "Full-Stack Software Engineer",
+    stack: [
+      "Spring Boot",
+      "Spring Security",
+      "PostgreSQL",
+      "React",
+      "WebSockets",
+      "Docker",
+      "GitHub Actions",
+      "AWS",
+    ],
+    monogram: "SAAS",
+    problem:
+      "Modern enterprise teams require strict tenant-level data isolation without the overhead of deploying isolated infrastructure for each customer. At the same time, collaborative project boards require instantaneous, conflict-free state synchronization across multiple concurrent team members without high polling overhead.",
+    approach: [
+      "Architected multi-tenant data partitioning in PostgreSQL using tenant discriminators and secure schema routing managed via Spring Boot and Hibernate multi-tenancy filters.",
+      "Engineered granular Role-Based Access Control (RBAC) with Spring Security and JWT tokens, enforcing tenant boundary checks on every incoming request.",
+      "Built a bidirectional real-time Kanban board using STOMP over WebSockets, instantly broadcasting column transitions, task reordering, and assignees to connected team clients.",
+      "Created a responsive React frontend with fluid drag-and-drop mechanics, optimistic UI updates, and conflict resolution for concurrent edits.",
+      "Automated build, test verification, containerization, and deployment through a production-ready GitHub Actions CI/CD pipeline targeting AWS ECS/EC2 with Docker.",
+    ],
+    outcome:
+      "Delivered a zero-leakage multi-tenant SaaS architecture supporting seamless real-time team collaboration, sub-50ms WebSocket state sync, and automated push-to-deploy cloud infrastructure.",
+    links: [
+      {
+        label: "GitHub Repo (On Request)",
+        href: "https://github.com/sandeep6687",
+      },
+    ],
+    featured: true,
+  },
+  {
+    slug: "autonomous-sre-agent",
+    label: "Autonomous Agent & Command Center",
+    title: "Autonomous SRE Incident Triage Agent & Command Center",
+    cardTitle:
+      "FastAPI agent orchestrating incident triage across microservices with reactive telemetry & HITL",
+    accent: "#0b192c",
+    summary:
+      "Full-stack system: a FastAPI backend orchestrating a multi-step agent across microservices, paired with a real-time reactive web frontend showing live pipeline state, telemetry, and Human-in-the-Loop authorization.",
+    role: "AI Agent Architect & Full-Stack Implementer",
+    stack: [
+      "Python",
+      "FastAPI",
+      "Docker",
+      "Vanilla JS/CSS",
+      "LangGraph",
+      "LLM Tool Calling",
+      "HITL Authorization",
+      "Pytest",
+    ],
+    monogram: "SRE",
+    problem:
+      "When critical production outages occur across distributed microservices (database connection pool starvation, memory exhaustion, latency spikes), on-call engineers must correlate logs, runbooks, and deployment diffs under high stress. Manual triage causes extended MTTR and risks unintended consequences from unvetted emergency scripts.",
+    approach: [
+      "Engineered an autonomous multi-step incident response agent in FastAPI that ingests alerts, triages affected services, queries distributed logs, and formulates diagnostic hypotheses.",
+      "Paired the backend with a high-performance reactive web frontend (Vanilla JS/CSS) providing live visualization of pipeline state, telemetry graphs, and incident timelines without heavy framework bloat.",
+      "Designed secure REST endpoints with a mandatory Human-in-the-Loop (HITL) authorization flow, freezing graph execution and requiring explicit human approval before any destructive remediation actions execute.",
+      "Validated the system end-to-end with an automated evaluation test harness achieving 100% benchmark accuracy (4/4 test suites) for root cause localization and remediation tool selection.",
+      "Tracked and recorded live error-rate recovery, proving automated remediation reduced error rates from 42.5% down to 0.02% via pre- and post-telemetry monitoring.",
+    ],
+    outcome:
+      "Reduced incident triage time from 20 minutes of manual log hunting to automated root-cause localization within seconds, with 100% eval accuracy, strict Human-in-the-Loop safety gating, and 42.5% → 0.02% error recovery.",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/sandeep6687/autonomous-sre-agent",
+      },
+    ],
+    featured: true,
+  },
+  {
     slug: "enterprise-ai-workflow",
-    label: "Workflow engine",
+    label: "Workflow Engine",
     company: "Zenoti",
     title: "Enterprise AI Workflow & Automation Engine",
     cardTitle:
-      "Orchestrating multi-step AI workflows with tool-calling and retrieval",
+      "Event-driven microservices workflow engine processing 40 steps/sec with Kafka and Redis",
     accent: "#0c3d44",
     summary:
-      "Event-driven workflow backend with FastAPI, Kafka, and LLM tool-calling nodes — up to 40 automation steps per second.",
-    role: "Backend architect & implementer",
+      "Architected an event-driven, microservices-based workflow backend orchestrating multi-step automation nodes at up to 40 steps/second, using Kafka for async processing and Redis for caching.",
+    role: "Backend Architect & Implementer",
     stack: [
       "Python",
       "FastAPI",
@@ -134,79 +275,56 @@ export const projects: Project[] = [
       "Kafka",
       "Redis",
       "PostgreSQL",
-      "pgvector",
-      "Azure Functions",
+      "KEDA",
+      "Docker",
     ],
     monogram: "WF",
     problem:
-      "Enterprise teams needed multi-step automation that could mix LLM reasoning with real API calls, survive long-running runs, and stay grounded in their own data — not generic chatbot answers. A single request/response service was not enough: workflows had to register, trigger, branch, retry, and hand work to distributed workers without losing context between steps.",
+      "Enterprise SaaS operations require long-running, multi-step business automations that combine deterministic logic, external API integrations, and generative AI reasoning. Synchronous HTTP request-response architectures failed under heavy spikes and caused dropped jobs when individual third-party steps experienced latency.",
     approach: [
-      "Architected a scalable event-driven workflow backend with FastAPI services orchestrating multi-step, tool-calling automation nodes, with a .NET Core surface in the same system where it fit the existing enterprise stack.",
-      "Modeled the platform around workflow registration, triggers, conditions, and multi-step execution — the same plan/execute loop used in agent systems — then pushed long-running work onto distributed workers.",
-      "Used Kafka for async processing and Redis for caching so workers could scale independently of the API surface and avoid repeating expensive lookups mid-chain.",
-      "Built reusable AI-powered nodes that chain LLM prompts (Gemini, Claude) with external REST API calls, using pgvector for embedding-based context retrieval so each node could ground a decision in enterprise records.",
-      "Designed the node execution model for conditional branching and retries so a failed tool call did not kill an entire long-running automation chain.",
+      "Architected a distributed event-driven workflow engine with FastAPI and C#/.NET Core services orchestrating multi-step automation nodes.",
+      "Structured the platform around dynamic workflow registration, configurable triggers, branching conditions, and distributed worker execution.",
+      "Integrated Apache Kafka for asynchronous event queues and Redis for high-speed hot-path caching, decoupling the API ingestion layer from worker execution.",
+      "Implemented intelligent conditional branching and exponential-backoff retry policies across microservices, ensuring long-running automation chains gracefully recover from network or API blips.",
+      "Employed Docker containerization and KEDA (Kubernetes Event-driven Autoscaling) to dynamically scale worker pods based on Kafka topic backlog depths.",
     ],
     outcome:
-      "The engine supported up to 40 automation steps per second while keeping workflow decisions grounded in real enterprise data via semantic retrieval. Operators got a reliable, event-driven backbone instead of a brittle prompt script: async throughput from Kafka, hot-path caching from Redis, and nodes that could call tools, branch, and recover.",
+      "Supported sustained throughput of up to 40 automation steps per second with sub-second message dispatch, zero dropped tasks during network blips, and unified observability across enterprise workflows.",
     links: [],
     featured: true,
   },
   {
     slug: "lead-management",
-    label: "Lead management",
+    label: "Enterprise APIs",
     company: "Zenoti",
-    title: "AI-Enhanced Lead Management System",
+    title: "AI-Enhanced Lead Management & Scoring System",
     cardTitle:
-      "Scoring and summarizing enterprise leads so sales can act on intent",
-    accent: "#9aadc0",
+      "Production ASP.NET Core APIs with AI lead scoring and SQL Server query optimization",
+    accent: "#1e2e3d",
     summary:
-      "ASP.NET Core APIs with AI lead scoring and LLM summaries so sales teams can prioritize high-intent leads.",
-    role: "Backend engineer",
+      "Engineered production-grade REST APIs and backend services using C#/.NET Core, SQL Server, and AI-driven intent scoring to prioritize enterprise sales leads.",
+    role: "Backend Software Engineer",
     stack: [
       "ASP.NET Core",
       "C#",
-      "Web API",
-      "EF Core",
       "SQL Server",
-      "LLM integration",
+      "EF Core",
+      "Redis",
+      "Swagger/OpenAPI",
+      "JWT",
     ],
     monogram: "LM",
     problem:
-      "Sales teams were drowning in lead volume. Ranking intent and writing summaries by hand did not scale across large enterprise datasets, so high-intent accounts sat in the same queue as noise. The system needed scoring, summarization, and fast retrieval over SQL Server — not another dashboard that still required a human to read every row.",
+      "Sales teams faced hundreds of thousands of incoming enterprise leads. Manual triage resulted in delayed follow-ups for high-intent prospects, while unoptimized SQL queries on high-volume lead tables created severe database bottlenecks.",
     approach: [
-      "Developed scalable ASP.NET Core Web APIs with AI-based lead scoring so the sales surface could sort by predicted intent instead of recency alone.",
-      "Added LLM-driven summary extraction so a rep could see why a lead ranked high without opening the full record trail.",
-      "Modeled lead data with Entity Framework Core against SQL Server and exposed REST contracts the rest of the stack could consume.",
-      "Tuned SQL Server execution plans and indexes to accelerate retrieval across large lead datasets instead of pushing the problem into app-layer pagination.",
+      "Developed high-throughput ASP.NET Core Web APIs for lead ingestion, intent scoring, and automated sales routing.",
+      "Implemented AI-based lead scoring that predicts conversion probability from behavioral telemetry, enabling reps to act on high-intent accounts immediately.",
+      "Optimized SQL Server database performance by profiling execution plans, creating composite indexing strategies, and reducing query latency across million-row tables.",
+      "Cached hot metadata and lead status counters in Redis, cutting redundant relational queries by 60%.",
+      "Hardened backend endpoints with JWT token validation, Swagger/OpenAPI documentation, and NUnit integration tests.",
     ],
     outcome:
-      "Sales teams could prioritize high-intent leads from ranked, summarized records instead of raw dumps. Scoring and summaries lived behind the same Web API, and the SQL Server path stayed viable as the dataset grew — a practical AI feature on a conventional .NET/EF Core backend.",
-    links: [],
-    featured: true,
-  },
-  {
-    slug: "talentpulse-ai",
-    label: "TalentPulse",
-    title: "TalentPulse AI — ATS Resume Optimizer & Mock Interview",
-    cardTitle:
-      "Closing keyword gaps and running adaptive mock interviews with Gemini",
-    accent: "#7a8f7e",
-    summary:
-      ".NET 8 + Gemini backend that closes keyword gaps against job descriptions and runs adaptive mock interviews.",
-    role: "Full-stack backend owner",
-    stack: [".NET 8 Web API", "C#", "EF Core", "Gemini LLM"],
-    monogram: "TP",
-    problem:
-      "Candidates were rejected by ATS filters for missing keywords, then walked into interviews without practice against the skills a posting actually required. Resume rewrite and interview prep were two disconnected chores; neither was grounded in a structured gap analysis of the job description.",
-    approach: [
-      "Built an end-to-end AI resume-optimization backend with .NET 8 Web API, C#, EF Core, and Gemini LLMs as the generation and evaluation layer.",
-      "Parsed uploaded resumes, ran keyword-gap analysis against job descriptions, and auto-generated ATS-compliant rewrites with PDF and DOCX export so the candidate could apply immediately.",
-      "Engineered an adaptive mock-interview API that dynamically generates technical questions from the candidate's missing skills rather than a static bank.",
-      "Added real-time evaluation and feedback scoring on answers so the same gap list that rewrote the resume also drove the practice loop.",
-    ],
-    outcome:
-      "One backend both rewrites a resume to match a job description and coaches the candidate on the gaps that remain. ATS-oriented export (PDF/DOCX) and an adaptive interview API share the same skill-gap model, so prep is targeted instead of generic.",
+      "Accelerated high-intent lead engagement by 3x while stabilizing database utilization under high concurrency through strategic indexing and Redis caching.",
     links: [],
     featured: true,
   },
@@ -218,16 +336,14 @@ export const experience = [
     role: "Software Engineer",
     period: "Jan 2025 – Jun 2026",
     summary:
-      "Production backend on an enterprise SaaS platform: workflow automation, microservices, and 50+ REST APIs across Python and data-heavy SQL paths.",
+      "Software Engineer with 18 months of production experience building backend APIs, microservices, and agentic workflow systems in Python/FastAPI and C#/.NET for enterprise SaaS applications.",
     highlights: [
-      "Built a workflow automation platform with workflow registration, triggers, conditions, multi-step execution, and distributed workers — the same orchestration and task-execution patterns used in agent-loop and plan/execute systems.",
-      "Designed microservices and event-driven architectures using Kafka, Redis, Docker, Kubernetes, and KEDA so long-running workflows could scale asynchronously instead of blocking the API.",
-      "Engineered production-grade REST APIs and backend services with Python, PostgreSQL, and SQL Server for enterprise SaaS applications, contributing to 50+ independently delivered endpoints across workflow and lead-management surfaces.",
-      "Implemented Redis caching and database optimizations (query and index work on SQL Server and PostgreSQL) to cut redundant database operations and improve API responsiveness.",
-      "Owned features end-to-end within Agile/Scrum: requirement analysis, implementation, debugging, code review, testing, and production deployment.",
-      "Hardened services with JWT authentication, request validation, exception handling, Swagger/OpenAPI, plus unit and integration tests (NUnit, Coverlet).",
-      "Worked daily with Git/Bitbucket and Postman; used Azure Functions and Azure services where background and event-driven work belonged off the request path.",
-      "Turned ambiguous product requirements into scoped, shippable systems and iterated with AI-assisted development without dropping production standards.",
+      "Designed and built event-driven microservices using Kafka, Redis, Docker, Kubernetes, and KEDA to support scalable, asynchronous processing of long-running workflows.",
+      "Built a workflow automation platform — registration, triggers, conditions, multi-step execution, distributed workers — across a microservices architecture supporting up to 40 steps/sec.",
+      "Engineered production-grade REST APIs and backend services using Python, PostgreSQL, and SQL Server for enterprise SaaS applications, contributing to 50+ delivered endpoints.",
+      "Implemented Redis caching and database optimizations to reduce redundant queries and improve API responsiveness across high-volume datasets.",
+      "Developed secure backend systems with JWT authentication, API validation, and exception handling; documented via Swagger/OpenAPI.",
+      "Owned features end-to-end in Agile/Scrum — requirement analysis, implementation, code review, testing (Pytest, NUnit), and production deployment using Git throughout the SDLC.",
     ],
   },
 ];
@@ -235,12 +351,125 @@ export const experience = [
 export const education = {
   school: "VNR Vignana Jyothi Institute of Engineering and Technology",
   degree: "B.Tech, Computer Science (AI & ML)",
-  detail: "8.02 CGPA",
+  detail: "CGPA 8.02",
   period: "2021 – 2025",
 };
 
+export const services = [
+  {
+    title: "Event-Driven Microservices",
+    description:
+      "Asynchronous, decoupled microservice architectures built with Kafka, Redis, Docker, Kubernetes, and KEDA to process long-running jobs reliably without blocking request threads.",
+    technologies: ["Kafka", "Redis", "Docker", "Kubernetes", "KEDA"],
+  },
+  {
+    title: "Autonomous AI Agents & Workflows",
+    description:
+      "Deterministic agentic loops with multi-step reasoning, tool-calling orchestration, RAG semantic retrieval, and strict Human-in-the-Loop authorization checkpoints.",
+    technologies: ["FastAPI", "LangGraph", "Gemini", "RAG", "HITL"],
+  },
+  {
+    title: "High-Throughput REST APIs",
+    description:
+      "Production-grade APIs in Python (FastAPI) and C# (.NET Core) featuring JWT authentication, request schema validation, OpenAPI specifications, and clean domain design.",
+    technologies: ["FastAPI", "ASP.NET Core", "Spring Boot", "OpenAPI", "JWT"],
+  },
+  {
+    title: "Real-Time Full-Stack Applications",
+    description:
+      "Collaborative, real-time web applications with WebSockets, drag-and-drop interactions, tenant-level data isolation, and responsive React frontends.",
+    technologies: ["React", "WebSockets", "Spring Boot", "Tailwind CSS"],
+  },
+  {
+    title: "Cloud Infrastructure & CI/CD",
+    description:
+      "Automated deployment pipelines with GitHub Actions, AWS cloud services, Azure functions, Docker containerization, and automated integration test harnesses.",
+    technologies: ["AWS", "Azure", "GitHub Actions", "Docker", "Linux"],
+  },
+  {
+    title: "Database Performance & Caching",
+    description:
+      "Relational schema modeling, multi-tenant partitioning, SQL Server / PostgreSQL query execution plan tuning, and Redis caching layers to eliminate latency bottlenecks.",
+    technologies: ["PostgreSQL", "SQL Server", "Redis", "Query Tuning"],
+  },
+] as const;
+
+export const whyWorkWithMe = [
+  {
+    number: "01",
+    title: "Production-Hardened Engineering",
+    description:
+      "18 months of high-velocity enterprise SaaS experience at Zenoti, shipping real features to production that handle 40 steps/sec across distributed systems.",
+  },
+  {
+    number: "02",
+    title: "System-First AI Architecture",
+    description:
+      "Treating agents as dependable state machines with strict telemetry, benchmark evaluation harnesses (100% accuracy), and Human-in-the-Loop guardrails — not fragile prompt demos.",
+  },
+  {
+    number: "03",
+    title: "Full-Stack Cohesion",
+    description:
+      "Deep microservices and backend muscle combined with reactive, real-time web frontends that provide instantaneous visual feedback via WebSockets.",
+  },
+  {
+    number: "04",
+    title: "Performance by Architecture",
+    description:
+      "Kafka event queues, Redis hot-path caching, and finely tuned SQL execution plans prevent bottlenecks before they reach production.",
+  },
+  {
+    number: "05",
+    title: "End-to-End Ownership",
+    description:
+      "Comfortable taking ambiguous briefs, scoping technical requirements, writing comprehensive tests (Pytest/NUnit), and driving features from Git to cloud deployment.",
+  },
+] as const;
+
+export const achievements = [
+  {
+    metric: "18+",
+    unit: "Months",
+    label: "Enterprise Production Experience at Zenoti",
+    desc: "Building event-driven microservices, workflow automation, and 50+ REST endpoints.",
+  },
+  {
+    metric: "40",
+    unit: "steps/sec",
+    label: "Workflow Automation Throughput",
+    desc: "Achieved via Kafka async queuing and Redis caching on distributed worker pools.",
+  },
+  {
+    metric: "100%",
+    unit: "Accuracy",
+    label: "Automated Evaluation Benchmark (4/4)",
+    desc: "Root-cause localization and tool selection in Autonomous SRE incident response.",
+  },
+  {
+    metric: "42.5% → 0.02%",
+    unit: "Recovery",
+    label: "Live Error-Rate Remediation",
+    desc: "Validated telemetry recovery across P1 production outage simulations.",
+  },
+  {
+    metric: "8.02",
+    unit: "CGPA",
+    label: "B.Tech Computer Science (AI & ML)",
+    desc: "VNR Vignana Jyothi Institute of Engineering and Technology (2021 – 2025).",
+  },
+] as const;
+
 export function getProject(slug: string) {
   return projects.find((project) => project.slug === slug);
+}
+
+export function getAdjacentProjects(slug: string) {
+  const index = projects.findIndex((project) => project.slug === slug);
+  if (index === -1) return { prev: null, next: null };
+  const prev = index > 0 ? projects[index - 1] : projects[projects.length - 1];
+  const next = index < projects.length - 1 ? projects[index + 1] : projects[0];
+  return { prev, next };
 }
 
 export const featuredProjects = projects.filter((project) => project.featured);

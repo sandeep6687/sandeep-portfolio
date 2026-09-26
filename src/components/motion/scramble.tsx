@@ -16,10 +16,7 @@ export function Scramble({
   const [out, setOut] = useState(reduce ? text : "");
 
   useEffect(() => {
-    if (reduce) {
-      setOut(text);
-      return;
-    }
+    if (reduce) return;
     let frame = 0;
     const total = text.length * 3 + 12;
     const id = window.setInterval(() => {
